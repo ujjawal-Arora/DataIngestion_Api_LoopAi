@@ -16,6 +16,15 @@ import axios from 'axios';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
+// Create axios instance with default config
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
+
 function NewIngestion() {
   const [ids, setIds] = useState('');
   const [priority, setPriority] = useState('MEDIUM');
@@ -43,7 +52,7 @@ function NewIngestion() {
 
     try {
       const idsArray = ids.split(',').map(id => parseInt(id.trim()));
-      const response = await axios.post(`${API_BASE_URL}/ingest`, {
+      const response = await api.post('/ingest', {
         ids: idsArray,
         priority
       });
@@ -51,11 +60,18 @@ function NewIngestion() {
       setIds(''); // Reset form
     } catch (err) {
       console.error('Error submitting ingestion:', err);
-      setError(
-        err.response?.data?.error || 
-        err.message || 
-        'An error occurred while submitting the ingestion request'
-      );
+      let errorMessage = 'An error occurred while submitting the ingestion request';
+      
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        errorMessage = err.response.data?.error || `Server error: ${err.response.status}`;
+      } else if (err.request) {
+        // The request was made but no response was received
+        errorMessage = 'No response from server. Please check your connection.';
+      }
+      
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: ingestion-frontend
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://ingestion-api.onrender.com 

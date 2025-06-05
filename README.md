@@ -143,10 +143,6 @@ Response:
 # Backend tests
 cd backend
 npm test
-
-# Frontend tests
-cd frontend
-npm test
-```
+![LoopAI_Testcases](https://github.com/user-attachments/assets/87e22cd3-7e3b-4a38-a42e-33e1d178706f)
 
 

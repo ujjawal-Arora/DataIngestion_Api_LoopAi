@@ -1,0 +1,63 @@
+{
+  "ingestions": [
+    {
+      "ingestion_id": "f0b8fdb4-4521-4220-9010-5d76ba2013c0",
+      "priority": "HIGH",
+      "created_time": 1749100071928
+    },
+    {
+      "ingestion_id": "7fb552b4-6f70-4e18-9157-235c1af3f1da",
+      "priority": "MEDIUM",
+      "created_time": 1749100586059
+    },
+    {
+      "ingestion_id": "183a24d3-24d6-46a1-a079-22fa98a86baa",
+      "priority": "HIGH",
+      "created_time": 1749100728800
+    }
+  ],
+  "batches": [
+    {
+      "batch_id": "6334da5a-0e72-4c95-8327-b8c30bfc44aa",
+      "ingestion_id": "f0b8fdb4-4521-4220-9010-5d76ba2013c0",
+      "ids": [
+        1,
+        2,
+        3
+      ],
+      "status": "completed"
+    },
+    {
+      "batch_id": "fd65152e-0a71-4429-9aa4-8107a6b1b222",
+      "ingestion_id": "f0b8fdb4-4521-4220-9010-5d76ba2013c0",
+      "ids": [
+        4,
+        5
+      ],
+      "status": "triggered"
+    },
+    {
+      "batch_id": "c32a2b48-bd20-40aa-b0c4-087afa6cb1f7",
+      "ingestion_id": "7fb552b4-6f70-4e18-9157-235c1af3f1da",
+      "ids": [
+        1,
+        2,
+        3
+      ],
+      "status": "triggered",
+      "priority": "MEDIUM",
+      "created_time": 1749100586059
+    },
+    {
+      "batch_id": "6882ed42-6a52-43e5-889c-cd6ab28e6563",
+      "ingestion_id": "183a24d3-24d6-46a1-a079-22fa98a86baa",
+      "ids": [
+        1,
+        4
+      ],
+      "status": "triggered",
+      "priority": "HIGH",
+      "created_time": 1749100728800
+    }
+  ]
+}

@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+const API_BASE_URL = 'https://dataingestion-api-loopai-1.onrender.com';
 
 // Create axios instance with default config
 const api = axios.create({
@@ -22,7 +22,8 @@ const api = axios.create({
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json'
-  }
+  },
+  withCredentials: true
 });
 
 function NewIngestion() {
